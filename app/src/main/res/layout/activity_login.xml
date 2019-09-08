@@ -79,7 +79,7 @@
             android:layout_gravity="center_vertical"
             android:src="@drawable/signupperson"/>
     <Button
-        android:id="@+id/findIdPwButton"
+        android:id="@+id/SignupButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

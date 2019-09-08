@@ -34,6 +34,14 @@ public class RetrofitManager {
         return retrofitManager;
     }
 
+    public void setOnSuccessLoginListener(SuccessLoginListener mSuccessLoginListener){
+        this.mSuccessLoginListener = mSuccessLoginListener;
+    }
+
+    public void removeSuccessLoginListener() {
+        this.mSuccessLoginListener = null;
+    }
+
     private void logForErrorResponse(int errorCode, String errorMessage, String methodName) {
         Log.e(TAG, methodName + " Error Code: " + errorCode);
         Log.e(TAG, methodName + ": " + errorMessage);
