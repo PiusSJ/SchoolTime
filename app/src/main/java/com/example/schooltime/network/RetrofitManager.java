@@ -5,9 +5,12 @@ import android.widget.Toast;
 
 import com.example.schooltime.GlobalApplication;
 import com.example.schooltime.listener.SuccessLoginListener;
+import com.example.schooltime.listener.SuccessRegistrationListener;
 import com.example.schooltime.model.LoginDTO;
+import com.example.schooltime.model.RegisterTO;
 import com.example.schooltime.model.UserInfoTO;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,6 +26,7 @@ public class RetrofitManager {
     private Retrofit retrofit;
     private SchoolTimeService service;
     private SuccessLoginListener mSuccessLoginListener;
+    private SuccessRegistrationListener mSuccessRegistrationListener;
 
     private RetrofitManager() {
         retrofit = new Retrofit.Builder().baseUrl(requestURL).addConverterFactory(GsonConverterFactory.create(new GsonBuilder().create())).build();
@@ -40,6 +44,14 @@ public class RetrofitManager {
 
     public void removeSuccessLoginListener() {
         this.mSuccessLoginListener = null;
+    }
+
+    public void setOnSuccessRegistrationListener(SuccessRegistrationListener mSuccessRegisterationListener){
+        this.mSuccessRegistrationListener = mSuccessRegistrationListener;
+    }
+
+    public void removeSuccessRegistrationListener() {
+        this.mSuccessRegistrationListener = null;
     }
 
     private void logForErrorResponse(int errorCode, String errorMessage, String methodName) {
@@ -72,6 +84,28 @@ public class RetrofitManager {
 
             @Override
             public void onFailure(Call<UserInfoTO> call, Throwable t) {
+                logForFailureConnection(t.getMessage(), methodName);
+            }
+        });
+    }
+
+    public void register(RegisterTO registerTO) {
+        final String methodName = "register";
+        Call<RegisterTO> req = service.register(registerTO);
+        req.enqueue(new Callback<RegisterTO>(){
+            @Override
+            public void onResponse(Call<RegisterTO> call, Response<RegisterTO> response){
+                if(response.isSuccessful()) {
+                    if(mSuccessRegistrationListener != null) {
+                        mSuccessRegistrationListener.onSuccessRegister();
+                    }
+                } else {
+                    logForErrorResponse(response.code(), response.errorBody().toString(), methodName);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RegisterTO> call, Throwable t) {
                 logForFailureConnection(t.getMessage(), methodName);
             }
         });
