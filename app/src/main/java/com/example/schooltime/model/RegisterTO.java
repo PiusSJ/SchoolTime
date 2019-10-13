@@ -1,15 +1,14 @@
 package com.example.schooltime.model;
 
 public class RegisterTO {
-    private String email, password, name, school;
-    private int grade;
-    //+시간표
-    public String getEmail() {
-        return email;
+    private String id, password, name;
+
+    public String getId() {
+        return id;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setId(String email) {
+        this.id = id;
     }
 
     public String getPassword() {
@@ -28,27 +27,9 @@ public class RegisterTO {
         this.name = name;
     }
 
-    public String getSchool() {
-        return school;
-    }
-
-    public void setSchool(String school) {
-        this.school = school;
-    }
-
-    public int getGrade() {
-        return grade;
-    }
-
-    public void setGrade(int grade) {
-        this.grade = grade;
-    }
-
-    public RegisterTO(String email, String password, String name, String school, int grade) {
-        this.email = email;
+    public RegisterTO(String id, String password, String name) {
+        this.id = id;
         this.password = password;
         this.name = name;
-        this.school = school;
-        this.grade = grade;
     }
 }

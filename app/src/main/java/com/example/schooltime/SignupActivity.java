@@ -3,12 +3,14 @@ package com.example.schooltime;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.example.schooltime.model.RegisterTO;
+import com.example.schooltime.network.RetrofitManager;
 
 public class SignupActivity extends AppCompatActivity {
     private Button signupBtn;
@@ -23,17 +25,19 @@ public class SignupActivity extends AppCompatActivity {
         nameInput = findViewById(R.id.NameInput);
         idInput = findViewById(R.id.idInput);
         passwordInput = findViewById(R.id.PWInput);
-        signupBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(isAcceptable(nameInput.getText().toString(),idInput.getText().toString(),passwordInput.getText().toString())){
-                    Intent i = new Intent(SignupActivity.this, SignupInfoActivity.class);
-                    startActivity(i);
-                } else {
-                    Toast.makeText(getApplicationContext(),"비밀번호는 8자리 이상이어야 합니다. 이름과 이메일을 확인해주세요.",Toast.LENGTH_LONG).show();
+        RetrofitManager.getInstance().setOnSuccessRegistrationListener(this);
+            signupBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (isAcceptable(nameInput.getText().toString(), idInput.getText().toString(), passwordInput.getText().toString())) {
+                        RetrofitManager.getInstance().register(new RegisterTO(idInput.getText().toString(), passwordInput.getText().toString(),nameInput.getText().toString()));
+                        Intent i = new Intent(SignupActivity.this, SignupInfoActivity.class);
+                        startActivity(i);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "비밀번호는 8자리 이상이어야 합니다. 이름과 이메일을 확인해주세요.", Toast.LENGTH_LONG).show();
+                    }
                 }
-            }
-        });
+            });
         helpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
