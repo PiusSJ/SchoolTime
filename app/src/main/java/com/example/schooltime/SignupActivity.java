@@ -9,10 +9,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.schooltime.model.RegisterTO;
+import com.example.schooltime.listener.SuccessRegistrationListener;
+import com.example.schooltime.model.UserTO;
 import com.example.schooltime.network.RetrofitManager;
 
-public class SignupActivity extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity implements SuccessRegistrationListener {
     private Button signupBtn;
     private ImageView helpBtn;
     private EditText nameInput, idInput, passwordInput;
@@ -30,9 +31,7 @@ public class SignupActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if (isAcceptable(nameInput.getText().toString(), idInput.getText().toString(), passwordInput.getText().toString())) {
-                        RetrofitManager.getInstance().register(new RegisterTO(idInput.getText().toString(), passwordInput.getText().toString(),nameInput.getText().toString()));
-                        Intent i = new Intent(SignupActivity.this, SignupInfoActivity.class);
-                        startActivity(i);
+                        RetrofitManager.getInstance().register(new UserTO(idInput.getText().toString(), passwordInput.getText().toString(),nameInput.getText().toString()));
                     } else {
                         Toast.makeText(getApplicationContext(), "비밀번호는 8자리 이상이어야 합니다. 이름과 이메일을 확인해주세요.", Toast.LENGTH_LONG).show();
                     }
@@ -51,5 +50,20 @@ public class SignupActivity extends AppCompatActivity {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public void onSuccessRegister(String userId, String userPassword, String userName) {
+        Intent i = new Intent(SignupActivity.this, SignupInfoActivity.class);
+        i.putExtra("userName", userName);
+        i.putExtra("userId", userId);
+        i.putExtra("userPassword", userPassword);
+        startActivity(i);
+    }
+
+    @Override
+    protected void onDestroy() {
+        RetrofitManager.getInstance().removeSuccessRegistrationListener();
+        super.onDestroy();
     }
 }

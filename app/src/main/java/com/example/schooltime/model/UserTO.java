@@ -1,6 +1,6 @@
 package com.example.schooltime.model;
 
-public class RegisterTO {
+public class UserTO {
     private String id, password, name;
 
     public String getId() {
@@ -27,7 +27,7 @@ public class RegisterTO {
         this.name = name;
     }
 
-    public RegisterTO(String id, String password, String name) {
+    public UserTO(String id, String password, String name) {
         this.id = id;
         this.password = password;
         this.name = name;

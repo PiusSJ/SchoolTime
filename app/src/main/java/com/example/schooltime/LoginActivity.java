@@ -12,8 +12,8 @@ import com.example.schooltime.model.LoginDTO;
 import com.example.schooltime.network.RetrofitManager;
 
 public class LoginActivity extends AppCompatActivity implements SuccessLoginListener {
-    EditText idInput, pwInput;
-    Button confirmBtn, signupBtn;
+    private EditText idInput, pwInput;
+    private Button confirmBtn, signupBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

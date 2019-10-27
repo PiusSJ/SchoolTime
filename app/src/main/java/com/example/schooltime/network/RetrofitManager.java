@@ -7,10 +7,9 @@ import com.example.schooltime.GlobalApplication;
 import com.example.schooltime.listener.SuccessLoginListener;
 import com.example.schooltime.listener.SuccessRegistrationListener;
 import com.example.schooltime.model.LoginDTO;
-import com.example.schooltime.model.RegisterTO;
+import com.example.schooltime.model.UserTO;
 import com.example.schooltime.model.UserInfoTO;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitManager {
 
     private static String TAG = "Retrofit";
-    final private String requestURL = "https://10.0.2.2:8080";
+    final private String requestURL = "http://10.0.2.2:8080";
     private static RetrofitManager retrofitManager;
     private Retrofit retrofit;
     private SchoolTimeService service;
@@ -46,7 +45,7 @@ public class RetrofitManager {
         this.mSuccessLoginListener = null;
     }
 
-    public void setOnSuccessRegistrationListener(SuccessRegistrationListener mSuccessRegisterationListener){
+    public void setOnSuccessRegistrationListener(SuccessRegistrationListener mSuccessRegistrationListener){
         this.mSuccessRegistrationListener = mSuccessRegistrationListener;
     }
 
@@ -89,24 +88,19 @@ public class RetrofitManager {
         });
     }
 
-    public void register(RegisterTO registerTO) {
+    public void register(UserTO userTO) {
         final String methodName = "register";
-        Call<RegisterTO> req = service.register(registerTO);
-        req.enqueue(new Callback<RegisterTO>(){
+        Call<UserTO> req = service.register(userTO);
+        req.enqueue(new Callback() {
+
             @Override
-            public void onResponse(Call<RegisterTO> call, Response<RegisterTO> response){
-                if(response.isSuccessful()) {
-                    if(mSuccessRegistrationListener != null) {
-                        mSuccessRegistrationListener.onSuccessRegister();
-                    }
-                } else {
-                    logForErrorResponse(response.code(), response.errorBody().toString(), methodName);
-                }
+            public void onResponse(Call call, Response response) {
+                Toast.makeText(GlobalApplication.getGlobalContext(),"회원가입 성공하였습니다.",Toast.LENGTH_LONG).show();
             }
 
             @Override
-            public void onFailure(Call<RegisterTO> call, Throwable t) {
-                logForFailureConnection(t.getMessage(), methodName);
+            public void onFailure(Call call, Throwable throwable) {
+                logForFailureConnection(throwable.getMessage(), methodName);
             }
         });
     }
