@@ -69,6 +69,8 @@ public class RetrofitManager {
         req.enqueue(new Callback<UserInfoTO>() {
             @Override
             public void onResponse(Call<UserInfoTO> call, Response<UserInfoTO> response) {
+                Log.i("test",response.message());
+                Log.i("test","fdafas");
                 if(response.isSuccessful()){
                     Toast.makeText(GlobalApplication.getGlobalContext(),"로그인에 성공하였습니다.",Toast.LENGTH_LONG).show();
                     Log.i(TAG, methodName + ": loginSuccess, user_id = " + response.body().getName());
@@ -96,6 +98,7 @@ public class RetrofitManager {
             @Override
             public void onResponse(Call call, Response response) {
                 Toast.makeText(GlobalApplication.getGlobalContext(),"회원가입 성공하였습니다.",Toast.LENGTH_LONG).show();
+                mSuccessRegistrationListener.onSuccessRegister();
             }
 
             @Override

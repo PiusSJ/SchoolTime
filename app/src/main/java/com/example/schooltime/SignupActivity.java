@@ -1,7 +1,7 @@
 package com.example.schooltime;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -53,11 +53,8 @@ public class SignupActivity extends AppCompatActivity implements SuccessRegistra
     }
 
     @Override
-    public void onSuccessRegister(String userId, String userPassword, String userName) {
+    public void onSuccessRegister() {
         Intent i = new Intent(SignupActivity.this, SignupInfoActivity.class);
-        i.putExtra("userName", userName);
-        i.putExtra("userId", userId);
-        i.putExtra("userPassword", userPassword);
         startActivity(i);
     }
 

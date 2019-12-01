@@ -15,6 +15,7 @@
             android:layout_height="wrap_content"
             android:padding="30dp"
             android:text="로그인"
+            android:textColor="#F87955"
             android:textSize="40dp"/>
         <ImageView
             android:layout_width="100dp"
@@ -31,6 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="이메일"
+            android:textColor="#F87955"
             android:textSize="20dp"
             android:padding="10dp"/>
         <EditText
@@ -51,6 +53,7 @@
             android:layout_height="wrap_content"
             android:text="비밀번호"
             android:textSize="20dp"
+            android:textColor="#F87955"
             android:padding="10dp"/>
         <EditText
             android:id="@+id/PWInput"
@@ -67,7 +70,7 @@
         android:padding="30dp"
         android:textSize="25dp"
         android:textColor="#FFFFFF"
-        android:background="#90000000"/>
+        android:background="#F87955"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,7 +89,7 @@
         android:background="#FFFFFF"
         android:padding="30dp"
         android:text="회원가입"
-        android:textColor="#0000FF"
+        android:textColor="#F87955"
         android:textSize="30dp" />
     </LinearLayout>
 </LinearLayout>
