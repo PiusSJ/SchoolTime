@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:paddingTop="10dp"
         android:text="학교"
         android:textColor="#000000"
@@ -40,20 +40,22 @@
         android:id="@+id/editText"
         android:layout_width="306dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="입력하세요"
-        
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    //dropdown (spinner) for schools
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:paddingTop="10dp"
         android:text="학년"
         android:textColor="#000000"
@@ -66,7 +68,7 @@
         android:id="@+id/editText2"
         android:layout_width="306dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="입력하세요"
@@ -79,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:paddingTop="10dp"
         android:text="알림 설정"
         android:textColor="#000000"
@@ -94,7 +96,7 @@
         android:layout_width="257dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="8dp"
         android:background="#F87955"
         android:text="설정"
@@ -104,385 +106,31 @@
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="15dp"
         android:paddingTop="10dp"
         android:text="시간표 설정"
         android:textColor="#000000"
         android:textSize="25dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <Button
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="12dp"
+        android:background="#F87955"
+        android:text="설정"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="8dp"
-        android:paddingTop="10dp"
-        android:text="월"
-        android:textColor="#0d98ba"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="8dp"
-        android:paddingTop="10dp"
-        android:text="화"
-        android:textColor="#0d98ba"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="8dp"
-        android:paddingTop="10dp"
-        android:text="수"
-        android:textColor="#0d98ba"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="8dp"
-        android:paddingTop="10dp"
-        android:text="목"
-        android:textColor="#0d98ba"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="8dp"
-        android:paddingTop="10dp"
-        android:text="금"
-        android:textColor="#0d98ba"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <EditText
-        android:id="@+id/timeTableEditText_Mon1"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        app:layout_constraintStart_toEndOf="@id/timeTableEditText_Mon1"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-    <EditText
-        android:id="@+id/editText6"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        app:layout_constraintStart_toEndOf="@+id/editText5"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <EditText
-        android:id="@+id/editText7"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        app:layout_constraintStart_toEndOf="@+id/editText6"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
-    <EditText
-        android:id="@+id/editText12"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/editText7"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
-    <EditText
-        android:id="@+id/editText13"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/editText7"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
-    <EditText
-        android:id="@+id/editText8"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeTableEditText_Mon1" />
-
-    <EditText
-        android:id="@+id/editText9"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        app:layout_constraintStart_toEndOf="@+id/editText8"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
-
-    <EditText
-        android:id="@+id/editText16"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        app:layout_constraintStart_toEndOf="@+id/editText15"
-        app:layout_constraintTop_toBottomOf="@+id/editText10" />
-
-    <EditText
-        android:id="@+id/editText15"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        app:layout_constraintStart_toEndOf="@+id/editText14"
-        app:layout_constraintTop_toBottomOf="@+id/editText9" />
-
-    <EditText
-        android:id="@+id/editText14"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText8" />
-
-    <EditText
-        android:id="@+id/editText18"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        app:layout_constraintStart_toEndOf="@+id/editText11"
-        app:layout_constraintTop_toBottomOf="@+id/editText13" />
-
-    <EditText
-        android:id="@+id/editText11"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        app:layout_constraintStart_toEndOf="@+id/editText10"
-        app:layout_constraintTop_toBottomOf="@+id/editText7" />
-
-    <EditText
-        android:id="@+id/editText10"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        app:layout_constraintStart_toEndOf="@+id/editText9"
-        app:layout_constraintTop_toBottomOf="@+id/editText6" />
-
-    <EditText
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        tools:layout_editor_absoluteX="192dp"
-        tools:layout_editor_absoluteY="639dp" />
-
-    <EditText
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        tools:layout_editor_absoluteX="222dp"
-        tools:layout_editor_absoluteY="675dp" />
-
-    <EditText
-
-        android:id="@+id/editText19"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText14" />
-
-    <EditText
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        tools:layout_editor_absoluteX="244dp"
-        tools:layout_editor_absoluteY="631dp" />
-
-    <EditText
-
-        android:id="@+id/editText17"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        app:layout_constraintStart_toEndOf="@+id/editText16"
-        app:layout_constraintTop_toBottomOf="@+id/editText11" />
-
-    <EditText
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        tools:layout_editor_absoluteX="232dp"
-        tools:layout_editor_absoluteY="583dp" />
-
-    <EditText
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        tools:layout_editor_absoluteX="336dp"
-        tools:layout_editor_absoluteY="511dp" />
-
-    <EditText
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        app:layout_constraintStart_toEndOf="@+id/editText20"
-        app:layout_constraintTop_toBottomOf="@+id/editText16" />
-
-    <EditText
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        app:layout_constraintStart_toEndOf="@+id/editText17"
-        app:layout_constraintTop_toBottomOf="@+id/editText18" />
-
-    <EditText
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="561dp" />
-
-    <EditText
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        tools:layout_editor_absoluteX="152dp"
-        tools:layout_editor_absoluteY="567dp" />
-
-    <EditText
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        tools:layout_editor_absoluteX="268dp"
-        tools:layout_editor_absoluteY="475dp" />
-
-    <EditText
-
-        android:id="@+id/editText20"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        app:layout_constraintStart_toEndOf="@+id/editText19"
-        app:layout_constraintTop_toBottomOf="@+id/editText15" />
-
-    <EditText
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        tools:layout_editor_absoluteX="304dp"
-        tools:layout_editor_absoluteY="631dp" />
-
-    <EditText
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        tools:layout_editor_absoluteX="284dp"
-        tools:layout_editor_absoluteY="583dp" />
-
-    <EditText
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        tools:layout_editor_absoluteX="152dp"
-        tools:layout_editor_absoluteY="623dp" />
-
-    <EditText
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        tools:layout_editor_absoluteX="72dp"
-        tools:layout_editor_absoluteY="601dp" />
-/*TextView setText by onClick editText Alert page*/
+    /*TextView setText by onClick editText Alert page*/
 </androidx.constraintlayout.widget.ConstraintLayout>
