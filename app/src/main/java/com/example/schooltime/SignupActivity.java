@@ -55,6 +55,7 @@ public class SignupActivity extends AppCompatActivity implements SuccessRegistra
     @Override
     public void onSuccessRegister() {
         Intent i = new Intent(SignupActivity.this, SignupInfoActivity.class);
+        i.putExtra("userId",idInput.getText().toString());
         startActivity(i);
     }
 

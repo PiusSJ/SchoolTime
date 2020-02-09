@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <Button
-        android:id="@+id/signupTimeTableBtn"
+        android:id="@+id/ttRegisterConfirmBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="확인"
@@ -39,7 +39,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signupTimeTableBtn">
+        app:layout_constraintTop_toBottomOf="@id/ttRegisterConfirmBtn">
 
         <TextView
             android:layout_width="0dp"

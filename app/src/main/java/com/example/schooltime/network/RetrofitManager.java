@@ -6,10 +6,14 @@ import android.widget.Toast;
 import com.example.schooltime.GlobalApplication;
 import com.example.schooltime.listener.SuccessLoginListener;
 import com.example.schooltime.listener.SuccessRegistrationListener;
+import com.example.schooltime.listener.SuccessTimetableRegistrationListener;
 import com.example.schooltime.model.LoginDTO;
 import com.example.schooltime.model.UserTO;
 import com.example.schooltime.model.UserInfoTO;
 import com.google.gson.GsonBuilder;
+
+import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,6 +30,7 @@ public class RetrofitManager {
     private SchoolTimeService service;
     private SuccessLoginListener mSuccessLoginListener;
     private SuccessRegistrationListener mSuccessRegistrationListener;
+    private SuccessTimetableRegistrationListener mSuccessTimetableRegistrationListener;
 
     private RetrofitManager() {
         retrofit = new Retrofit.Builder().baseUrl(requestURL).addConverterFactory(GsonConverterFactory.create(new GsonBuilder().create())).build();
@@ -51,6 +56,14 @@ public class RetrofitManager {
 
     public void removeSuccessRegistrationListener() {
         this.mSuccessRegistrationListener = null;
+    }
+
+    public void setOnSuccessTimetableRegistrationListener(SuccessTimetableRegistrationListener mSuccessTimetableRegistrationListener){
+        this.mSuccessTimetableRegistrationListener = mSuccessTimetableRegistrationListener;
+    }
+
+    public void removeSuccessTimetableRegistrationListener(){
+        this.mSuccessTimetableRegistrationListener = null;
     }
 
     private void logForErrorResponse(int errorCode, String errorMessage, String methodName) {
@@ -104,6 +117,23 @@ public class RetrofitManager {
             @Override
             public void onFailure(Call call, Throwable throwable) {
                 logForFailureConnection(throwable.getMessage(), methodName);
+            }
+        });
+    }
+
+    public void timetableRegister(String userId, List<String> timetable) {
+        final String methodName = "ttRegister";
+        Call<Map<String, List<String>>> req= service.ttRegister(userId,timetable);
+        req.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                Toast.makeText(GlobalApplication.getGlobalContext(),"시간표 입력 성공",Toast.LENGTH_LONG).show();
+                mSuccessTimetableRegistrationListener.onSuccessTimetableRegister();
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                logForFailureConnection(t.getMessage(), methodName);
             }
         });
     }
